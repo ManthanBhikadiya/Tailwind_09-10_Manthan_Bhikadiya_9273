@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://kit.fontawesome.com/6f7d0e203c.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="relative h-screen">
+  <div class="bg-[url(/img/2.png)] bg-cover bg-no-repeat blur-md absolute inset-0 -z-10"></div>
+  <div class="flex h-full py-10 px-4 w-full justify-center items-center ">
+
+    <div class="bg-white rounded-xl shadow w-6xl">
+      <div class="flex justify-between items-center mb-2">
+        <div class="p-6">
+          <h3 class="text-gray-400 text-xl">Total Balance</h3>
+          <p class="text-lg font-semibold text-gray-400">$1,534</p>
+        </div>
+        <span class="text-green-500 font-semibold p-6">+ 7%</span>
+      </div>
+
+      <div id="chart"></div>
+    </div>
+
+    <script>
+      var options = {
+        chart: {
+          type: 'area',
+          height: 300,
+          toolbar: { show: false },
+          zoom: { enabled: false }
+        },
+        series: [
+          {
+            name: '2018',
+            data: [20, 25, 22, 30, 28, 35, 60, 58, 55]
+          },
+          {
+            name: '2019',
+            data: [10, 18, 24, 26, 22, 28, 35, 40, 38]
+          }
+        ],
+        stroke: {
+          curve: 'smooth',
+          width: 3
+        },
+        colors: ['#3b82f6', '#10b981'],
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.4,
+            opacityTo: 0,
+            stops: [100, 100]
+          }
+        },
+        dataLabels: { enabled: false },
+        grid: { borderColor: '' },
+        legend: { show: false },
+        xaxis: {
+          labels: { show: false },
+          axisTicks: { show: false },
+          axisBorder: { show: false }
+        },
+        yaxis: { show: false },
+        tooltip: { enabled: false }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </div>
+</body>
+
+</html>

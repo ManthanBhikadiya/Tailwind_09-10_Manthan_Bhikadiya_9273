@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://kit.fontawesome.com/6f7d0e203c.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="relative h-screen">
+  <div class="bg-[url(/img/2.png)] bg-cover bg-no-repeat blur-md absolute inset-0 -z-10"></div>
+  <div class="flex h-full py-10 px-4 w-full justify-center items-center ">
+
+    <div class="bg-white rounded-xl shadow w-full max-w-4xl">
+      <div class="p-6">
+        <h3 class="text-gray-400 text-lg font-semibold">Total Sales</h3>
+        <p class="text-xl font-semibold text-gray-400 mb-4">$1.2M</p>
+      </div>
+
+      <div id="chart"></div>
+    </div>
+
+    <script>
+      var options = {
+        chart: {
+          type: "area",
+          height: 250,
+          toolbar: { show: false },
+          zoom: { enabled: false },
+        },
+        series: [{
+          name: "Sales",
+          data: [100, 120, 140, 160, 200, 180, 220, 170, 190, 210, 230, 250]
+        }],
+        stroke: {
+          curve: "smooth",
+          width: 3,
+          colors: ["#ff1e56"]
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.5,
+            opacityTo: 0,
+            stops: [0, 100],
+            colorStops: [
+              {
+                offset: 50,
+                color: "#ff1e56",
+                opacity: 0.2
+              },
+              {
+                offset: 100,
+                color: "#ffffff",
+                opacity: 0.4
+              }
+            ]
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        grid: {
+          borderColor: "",
+        },
+        xaxis: {
+          labels: { show: false },
+          axisTicks: { show: false },
+          axisBorder: { show: false }
+        },
+        yaxis: {
+          show: false
+        },
+        tooltip: {
+          theme: "light"
+        }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </div>
+</body>
+
+</html>

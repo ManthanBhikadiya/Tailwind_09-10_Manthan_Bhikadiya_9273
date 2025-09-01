@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://kit.fontawesome.com/6f7d0e203c.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="relative h-screen">
+  <div class="bg-[url(/img/2.png)] bg-cover bg-no-repeat blur-md absolute inset-0 -z-10"></div>
+  <div class="flex h-full py-10 px-4 w-full justify-center items-center ">
+
+    <div class="bg-white rounded-xl shadow p-6 w-md">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-gray-700">Milestones</h2>
+      </div>
+
+      <div class="mb-3">
+        <div class="flex justify-between text-sm text-gray-500 mb-1">
+          <span>Projects Done</span>
+          <span class="font-medium text-gray-400">8/12</span>
+        </div>
+        <div class="w-full bg-indigo-100 h-2 rounded">
+          <div class="bg-indigo-600 h-2 rounded" style="width: 66%"></div>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <div class="flex justify-between text-sm text-gray-500 mb-1">
+          <span>Clients Satisfied</span>
+          <span class="font-medium text-gray-400">10/12</span>
+        </div>
+        <div class="w-full bg-indigo-100 h-2 rounded">
+          <div class="bg-indigo-600 h-2 rounded" style="width: 83%"></div>
+        </div>
+      </div>
+
+      <div id="chart"></div>
+    </div>
+
+    <script>
+      var options = {
+        chart: {
+          type: 'area',
+          height: 200,
+          toolbar: { show: false },
+          zoom: { enabled: false },
+          sparkline: { enabled: true }
+        },
+        series: [{
+          name: 'Milestones',
+          data: [5, 8, 12, 18, 15, 20, 14, 10, 12, 16]
+        }],
+        stroke: {
+          curve: 'smooth',
+          width: 2
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.4,
+            opacityTo: 0,
+            stops: [100, 100]
+          }
+        },
+        colors: ['#6366f1'],
+        tooltip: { enabled: false }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </div>
+</body>
+
+</html>
